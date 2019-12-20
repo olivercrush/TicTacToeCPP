@@ -29,9 +29,11 @@ Case** Board::getBoard()
 
 void Board::printBoard()
 {
-	for (int i = 0; i < sizeof(this->board); i++)
+	cout << "-------------" << endl;
+	for (int i = 0; i < 3; i++)
 	{
-		for (int j = 0; j < sizeof(this->board[i]); j++)
+		cout << "|";
+		for (int j = 0; j < 3; j++)
 		{
 			cout << " ";
 			switch (this->board[i][j])
@@ -46,23 +48,23 @@ void Board::printBoard()
 
 				case Case::EMPTY:
 				default:
-					cout << "E";
+					cout << " ";
 					break;
 			}
 			cout << " |";
 		}
 		cout << endl;
-		cout << "------------" << endl;
+		cout << "-------------" << endl;
 	}
 }
 
 void Board::initializeBoard()
 {
 	this->board = new Case*[3];
-	for (int i = 0; i < sizeof(this->board); i++)
+	for (int i = 0; i < 3; i++)
 	{
 		this->board[i] = new Case[3];
-		for (int j = 0; j < sizeof(this->board[i]); j++)
+		for (int j = 0; j < 3; j++)
 		{
 			this->board[i][j] = Case::EMPTY;
 		}
