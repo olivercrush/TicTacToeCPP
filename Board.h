@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 
 enum Case : int {
 	X,
@@ -19,6 +20,6 @@ class Board
 	private :
 		void initializeBoard();
 		void initializeBoard(Board const& other);
-		Case board[3][3];
+		Case** board;
 
 };
