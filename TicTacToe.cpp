@@ -7,5 +7,9 @@
 int main()
 {
 	Board board = Board();
+	board.addMark(true, 0, 0);
+	board.addMark(false, 1, 1);
+
+	std::cout << std::endl;
 	board.printBoard();
 }

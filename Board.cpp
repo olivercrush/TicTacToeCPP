@@ -19,20 +19,20 @@ Board::~Board()
 
 void Board::addMark(bool xPlayer, int x, int y)
 {
-
+	this->board[y][x] = xPlayer ? Case::X : Case::O;
 }
 
 Case** Board::getBoard()
 {
-	return NULL;
+	return this->board;
 }
 
 void Board::printBoard()
 {
-	cout << "-------------" << endl;
+	cout << "  -------------" << endl;
 	for (int i = 0; i < 3; i++)
 	{
-		cout << "|";
+		cout << "  |";
 		for (int j = 0; j < 3; j++)
 		{
 			cout << " ";
@@ -54,7 +54,7 @@ void Board::printBoard()
 			cout << " |";
 		}
 		cout << endl;
-		cout << "-------------" << endl;
+		cout << "  -------------" << endl;
 	}
 }
 
