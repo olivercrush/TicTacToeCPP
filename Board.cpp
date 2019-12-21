@@ -14,7 +14,11 @@ Board::Board(Board const& other)
 
 Board::~Board()
 {
-	//delete(this->board);
+	for (int i = 0; i < 3; i++)
+	{
+		delete[] board[i];
+	}
+	delete[] board;
 }
 
 void Board::addMark(bool xPlayer, int x, int y)
