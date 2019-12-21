@@ -4,12 +4,12 @@ using namespace std;
 
 Board::Board() 
 {
-	this->initializeBoard();
+	initBoard();
 }
 
 Board::Board(Board const& other)
 {
-	this->initializeBoard(other);
+	initBoard(other);
 }
 
 Board::~Board()
@@ -23,12 +23,12 @@ Board::~Board()
 
 void Board::addMark(bool xPlayer, int x, int y)
 {
-	this->board[y][x] = xPlayer ? Case::X : Case::O;
+	board[x][y] = xPlayer ? Case::X : Case::O;
 }
 
 Case** Board::getBoard()
 {
-	return this->board;
+	return board;
 }
 
 void Board::printBoard()
@@ -40,7 +40,7 @@ void Board::printBoard()
 		for (int j = 0; j < 3; j++)
 		{
 			cout << " ";
-			switch (this->board[i][j])
+			switch (board[i][j])
 			{
 				case Case::X:
 					cout << "X";
@@ -60,30 +60,31 @@ void Board::printBoard()
 		cout << endl;
 		cout << "  -------------" << endl;
 	}
+	cout << endl;
 }
 
-void Board::initializeBoard()
+void Board::initBoard()
 {
-	this->board = new Case*[3];
+	board = new Case*[3];
 	for (int i = 0; i < 3; i++)
 	{
-		this->board[i] = new Case[3];
+		board[i] = new Case[3];
 		for (int j = 0; j < 3; j++)
 		{
-			this->board[i][j] = Case::EMPTY;
+			board[i][j] = Case::EMPTY;
 		}
 	}
 }
 
-void Board::initializeBoard(Board const& other)
+void Board::initBoard(Board const& other)
 {
-	this->board = new Case*[3];
-	for (int i = 0; i < sizeof(this->board); i++)
+	board = new Case*[3];
+	for (int i = 0; i < 3; i++)
 	{
-		this->board[i] = new Case[3];
-		for (int j = 0; j < sizeof(this->board[i]); j++)
+		board[i] = new Case[3];
+		for (int j = 0; j < 3; j++)
 		{
-			this->board[i][j] = other.board[i][j];
+			board[i][j] = other.board[i][j];
 		}
 	}
 }

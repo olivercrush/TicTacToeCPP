@@ -18,8 +18,8 @@ class Board
 		void printBoard();
 
 	private :
-		void initializeBoard();
-		void initializeBoard(Board const& other);
+		void initBoard();
+		void initBoard(Board const& other);
 		Case** board;
 
 };
