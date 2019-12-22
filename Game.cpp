@@ -21,18 +21,27 @@ void Game::startGame()
 	while (!gameOver)
 	{
 		int xTmp, yTmp;
+		bool validMove = false;
 
-		cout << (xFirstPlayer ? "X" : "O") << ", entrez votre coup (x puis y) : ";
-		cin >> xTmp;
-		cin >> yTmp;
-		doMove(xFirstPlayer, xTmp, yTmp);
+		while (!validMove)
+		{
+			cout << (xFirstPlayer ? "X" : "O") << ", entrez votre coup (x puis y) : ";
+			cin >> xTmp;
+			cin >> yTmp;
+			validMove = doMove(xFirstPlayer, xTmp, yTmp);
+		}
 
 		if (!gameOver)
 		{
-			cout << (!xFirstPlayer ? "X" : "O") << ", entrez votre coup (x puis y) : ";
-			cin >> xTmp;
-			cin >> yTmp;
-			doMove(!xFirstPlayer, xTmp, yTmp);
+			validMove = false;
+
+			while (!validMove)
+			{
+				cout << (!xFirstPlayer ? "X" : "O") << ", entrez votre coup (x puis y) : ";
+				cin >> xTmp;
+				cin >> yTmp;
+				validMove = doMove(!xFirstPlayer, xTmp, yTmp);
+			}
 		}
 	}
 
@@ -45,11 +54,17 @@ void Game::initGame()
 	board = new Board();
 }
 
-void Game::doMove(bool xPlayer, int x, int y)
+bool Game::doMove(bool xPlayer, int x, int y)
 {
-	board->addMark(xPlayer, x, y);
+	if (!board->addMark(xPlayer, x, y))
+	{
+		cout << "Ce coup est invalide.";
+		return false;
+	}
+
 	board->printBoard();
 	verifyGameOver();
+	return true;
 }
 
 void Game::verifyGameOver()

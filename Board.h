@@ -13,7 +13,7 @@ class Board
 		Board();
 		Board(Board const& other);
 		~Board();
-		void addMark(bool xPlayer, int x, int y);
+		bool addMark(bool xPlayer, int x, int y);
 		Case** getBoard();
 		void printBoard();
 

@@ -13,6 +13,6 @@ class Game
 		Board* board;
 		bool gameOver;
 		void initGame();
-		void doMove(bool xPlayer, int x, int y);
+		bool doMove(bool xPlayer, int x, int y);
 		void verifyGameOver();
 };

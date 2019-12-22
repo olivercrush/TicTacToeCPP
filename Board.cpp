@@ -21,9 +21,15 @@ Board::~Board()
 	delete[] board;
 }
 
-void Board::addMark(bool xPlayer, int x, int y)
+bool Board::addMark(bool xPlayer, int x, int y)
 {
+	if (board[x][y] != Case::EMPTY) 
+	{
+		return false;
+	}
+
 	board[x][y] = xPlayer ? Case::X : Case::O;
+	return true;
 }
 
 Case** Board::getBoard()
