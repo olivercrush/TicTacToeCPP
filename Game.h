@@ -1,5 +1,6 @@
 #pragma once
 #include "Board.h"
+#include "MoveGenerator.h"
 #include <iostream>
 
 class Game
@@ -10,8 +11,9 @@ class Game
 		void startGame();
 
 	private:
-		Board* board;
-		bool gameOver;
+		Board* board = new Board();
+		MoveGenerator* moveGen = new MoveGenerator;
+		bool gameOver = false;
 		void initGame();
 		bool doMove(bool xPlayer, int x, int y);
 		void verifyGameOver();

@@ -1,9 +1,8 @@
 #include "Game.h"
 
-using namespace std;
-
 Game::Game()
 {
+	initGame();
 }
 
 Game::~Game()
@@ -25,27 +24,31 @@ void Game::startGame()
 
 		while (!validMove)
 		{
-			cout << (xFirstPlayer ? "X" : "O") << ", entrez votre coup (x puis y) : ";
-			cin >> xTmp;
-			cin >> yTmp;
+			std::cout << (xFirstPlayer ? "X" : "O") << ", entrez votre coup (x puis y) : ";
+			std::cin >> xTmp;
+			std::cin >> yTmp;
 			validMove = doMove(xFirstPlayer, xTmp, yTmp);
 		}
 
+
+
 		if (!gameOver)
 		{
-			validMove = false;
+			std::vector<int*> moves = moveGen->generateMoves(*board);
+			int *move = moves[rand() % moves.size()];
 
+			validMove = false;
 			while (!validMove)
 			{
-				cout << (!xFirstPlayer ? "X" : "O") << ", entrez votre coup (x puis y) : ";
-				cin >> xTmp;
-				cin >> yTmp;
-				validMove = doMove(!xFirstPlayer, xTmp, yTmp);
+				//cout << (!xFirstPlayer ? "X" : "O") << ", entrez votre coup (x puis y) : ";
+				//cin >> xTmp;
+				//cin >> yTmp;
+				validMove = doMove(!xFirstPlayer, move[0], move[1]);
 			}
 		}
 	}
 
-	cout << "Partie terminee !" << endl << endl;
+	std::cout << "Partie terminee !" << std::endl << std::endl;
 }
 
 void Game::initGame()
@@ -58,7 +61,7 @@ bool Game::doMove(bool xPlayer, int x, int y)
 {
 	if (!board->addMark(xPlayer, x, y))
 	{
-		cout << "Ce coup est invalide.";
+		std::cout << "Ce coup est invalide.";
 		return false;
 	}
 

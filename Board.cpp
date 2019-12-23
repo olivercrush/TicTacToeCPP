@@ -1,7 +1,5 @@
 #include "Board.h"
 
-using namespace std;
-
 Board::Board() 
 {
 	initBoard();
@@ -39,34 +37,34 @@ Case** Board::getBoard()
 
 void Board::printBoard()
 {
-	cout << "  -------------" << endl;
+	std::cout << "  -------------" << std::endl;
 	for (int i = 0; i < 3; i++)
 	{
-		cout << "  |";
+		std::cout << "  |";
 		for (int j = 0; j < 3; j++)
 		{
-			cout << " ";
+			std::cout << " ";
 			switch (board[i][j])
 			{
 				case Case::X:
-					cout << "X";
+					std::cout << "X";
 					break;
 
 				case Case::O:
-					cout << "O";
+					std::cout << "O";
 					break;
 
 				case Case::EMPTY:
 				default:
-					cout << " ";
+					std::cout << " ";
 					break;
 			}
-			cout << " |";
+			std::cout << " |";
 		}
-		cout << endl;
-		cout << "  -------------" << endl;
+		std::cout << std::endl;
+		std::cout << "  -------------" << std::endl;
 	}
-	cout << endl;
+	std::cout << std::endl;
 }
 
 void Board::initBoard()

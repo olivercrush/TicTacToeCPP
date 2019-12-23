@@ -4,8 +4,6 @@
 #include <iostream>
 #include "Game.h"
 
-using namespace std;
-
 int main()
 {
 	/*Board board = Board();
@@ -15,9 +13,11 @@ int main()
 	std::cout << std::endl;
 	board.printBoard();*/
 
-	cout << "__________________________________________________________________________" << endl;
-	cout << "_____________________________ TIC TAC TOE ________________________________" << endl << endl;
+	std::cout << "__________________________________________________________________________" << std::endl;
+	std::cout << "_____________________________ TIC TAC TOE ________________________________" << std::endl << std::endl;
 
 	Game game = Game();
 	game.startGame();
+
+
 }
