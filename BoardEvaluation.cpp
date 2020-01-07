@@ -18,7 +18,7 @@ int BoardEvaluation::evaluateBoard(Board board, bool xFirstPlayer)
 			{
 				return xFirstPlayer ? 10 : -10;
 			}
-			else
+			else if (cases[i][0] == Case::O)
 			{
 				return !xFirstPlayer ? 10 : -10;
 			}
@@ -34,7 +34,7 @@ int BoardEvaluation::evaluateBoard(Board board, bool xFirstPlayer)
 			{
 				return xFirstPlayer ? 10 : -10;
 			}
-			else
+			else if (cases[0][i] == Case::O)
 			{
 				return !xFirstPlayer ? 10 : -10;
 			}
@@ -48,7 +48,7 @@ int BoardEvaluation::evaluateBoard(Board board, bool xFirstPlayer)
 		{
 			return xFirstPlayer ? 10 : -10;
 		}
-		else
+		else if (cases[0][0] == Case::O)
 		{
 			return !xFirstPlayer ? 10 : -10;
 		}
@@ -60,7 +60,7 @@ int BoardEvaluation::evaluateBoard(Board board, bool xFirstPlayer)
 		{
 			return xFirstPlayer ? 10 : -10;
 		}
-		else
+		else if (cases[0][2] == Case::O)
 		{
 			return !xFirstPlayer ? 10 : -10;
 		}
