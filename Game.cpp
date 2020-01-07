@@ -30,8 +30,6 @@ void Game::startGame()
 			validMove = doMove(xFirstPlayer, xTmp, yTmp);
 		}
 
-
-
 		if (!gameOver)
 		{
 			std::vector<int*> moves = moveGen->generateMoves(*board);
