@@ -10,9 +10,9 @@ MoveGenerator::~MoveGenerator()
 
 }
 
-std::vector<int*> MoveGenerator::generateMoves(Board board)
+std::vector<Move> MoveGenerator::generateMoves(Board board)
 {
-	std::vector<int*> moves;
+	std::vector<Move> moves;
 
 	for (int i = 0; i < 3; i++)
 	{
@@ -20,7 +20,10 @@ std::vector<int*> MoveGenerator::generateMoves(Board board)
 		{
 			if (board.getBoard()[i][j] == Case::EMPTY)
 			{
-				moves.push_back(new int[2]{ i, j });
+				Move move = Move();
+				move.row = i;
+				move.col = j;
+				moves.push_back(move);
 			}
 		}
 	}

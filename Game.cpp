@@ -32,8 +32,8 @@ void Game::startGame()
 
 		if (!gameOver)
 		{
-			std::vector<int*> moves = moveGen->generateMoves(*board);
-			int *move = moves[rand() % moves.size()];
+			std::vector<Move> moves = moveGen->generateMoves(*board);
+			Move move = moves[rand() % moves.size()];
 
 			validMove = false;
 			while (!validMove)
@@ -41,7 +41,7 @@ void Game::startGame()
 				//cout << (!xFirstPlayer ? "X" : "O") << ", entrez votre coup (x puis y) : ";
 				//cin >> xTmp;
 				//cin >> yTmp;
-				validMove = doMove(!xFirstPlayer, move[0], move[1]);
+				validMove = doMove(!xFirstPlayer, move.row, move.col);
 			}
 		}
 	}

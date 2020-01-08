@@ -2,12 +2,17 @@
 #include <vector>
 #include "Board.h"
 
+struct Move
+{
+	int row, col;
+};
+
 class MoveGenerator
 {
 	public:
 		MoveGenerator();
 		~MoveGenerator();
-		std::vector<int*> generateMoves(Board board);
+		std::vector<Move> generateMoves(Board board);
 
 	private:
 };
