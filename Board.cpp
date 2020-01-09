@@ -30,6 +30,12 @@ bool Board::addMark(bool xPlayer, int x, int y)
 	return true;
 }
 
+void Board::removeMark(int x, int y)
+{
+	board[x][y] = Case::EMPTY;
+}
+
+
 Case** Board::getBoard()
 {
 	return board;

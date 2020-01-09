@@ -14,7 +14,7 @@ class Game
 	private:
 		Board* board = new Board();
 		MoveGenerator* moveGen = new MoveGenerator();
-		//AI* ai = new AI();
+		AI* ai = new AI();
 		bool gameOver = false;
 		void initGame();
 		bool doMove(bool xPlayer, int x, int y);

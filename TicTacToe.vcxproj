@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AI.cpp" />
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="BoardEvaluation.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -158,6 +159,7 @@
     <ClCompile Include="TicTacToe.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AI.h" />
     <ClInclude Include="Board.h" />
     <ClInclude Include="BoardEvaluation.h" />
     <ClInclude Include="Game.h" />

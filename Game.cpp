@@ -32,8 +32,9 @@ void Game::startGame()
 
 		if (!gameOver)
 		{
-			std::vector<Move> moves = moveGen->generateMoves(*board);
-			Move move = moves[rand() % moves.size()];
+			//std::vector<Move> moves = moveGen->generateMoves(*board);
+			//Move move = moves[rand() % moves.size()];
+			Move move = ai->findBestMove(*board, playerIsX);
 
 			validMove = false;
 			while (!validMove)

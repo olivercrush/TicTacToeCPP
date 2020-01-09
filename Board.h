@@ -14,6 +14,7 @@ class Board
 		Board(Board const& other);
 		~Board();
 		bool addMark(bool xPlayer, int x, int y);
+		void removeMark(int x, int y);
 		Case** getBoard();
 		void printBoard();
 
