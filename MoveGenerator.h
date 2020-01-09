@@ -13,6 +13,7 @@ class MoveGenerator
 		MoveGenerator();
 		~MoveGenerator();
 		std::vector<Move> generateMoves(Board board);
+		bool isBoardComplete(Board board);
 
 	private:
 };

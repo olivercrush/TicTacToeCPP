@@ -1,15 +1,14 @@
 // TicTacToe.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
-//
 
 #include <iostream>
 #include "Game.h"
 
-#include "Board.h"
-#include "BoardEvaluation.h"
+//#include "Board.h"
+//#include "BoardEvaluation.h"
 
 int main()
 {
-	Board board = Board();
+	/*Board board = Board();
 	board.addMark(true, 0, 0);
 	board.addMark(true, 0, 1);
 	board.addMark(false, 0, 2);
@@ -20,14 +19,14 @@ int main()
 	board.printBoard();
 
 	BoardEvaluation evaluation = BoardEvaluation();
-	std::cout << evaluation.evaluateBoard(board, true);
+	std::cout << evaluation.evaluateBoard(board, true);*/
 
 
-	/*std::cout << "__________________________________________________________________________" << std::endl;
+	std::cout << "__________________________________________________________________________" << std::endl;
 	std::cout << "_____________________________ TIC TAC TOE ________________________________" << std::endl << std::endl;
 
 	Game game = Game();
-	game.startGame();*/
+	game.startGame();
 
 
 }

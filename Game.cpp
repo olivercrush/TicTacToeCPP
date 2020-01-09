@@ -15,7 +15,7 @@ void Game::startGame()
 	initGame();
 	board->printBoard();
 
-	bool xFirstPlayer = (rand() % 100 >= 50);
+	bool playerIsX = true;
 
 	while (!gameOver)
 	{
@@ -24,10 +24,10 @@ void Game::startGame()
 
 		while (!validMove)
 		{
-			std::cout << (xFirstPlayer ? "X" : "O") << ", entrez votre coup (x puis y) : ";
+			std::cout << (playerIsX ? "X" : "O") << ", entrez votre coup (x puis y) : ";
 			std::cin >> xTmp;
 			std::cin >> yTmp;
-			validMove = doMove(xFirstPlayer, xTmp, yTmp);
+			validMove = doMove(playerIsX, xTmp, yTmp);
 		}
 
 		if (!gameOver)
@@ -41,7 +41,7 @@ void Game::startGame()
 				//cout << (!xFirstPlayer ? "X" : "O") << ", entrez votre coup (x puis y) : ";
 				//cin >> xTmp;
 				//cin >> yTmp;
-				validMove = doMove(!xFirstPlayer, move.row, move.col);
+				validMove = doMove(!playerIsX, move.row, move.col);
 			}
 		}
 	}
