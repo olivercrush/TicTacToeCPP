@@ -34,5 +34,5 @@ std::vector<Move> MoveGenerator::generateMoves(Board board)
 bool MoveGenerator::isBoardComplete(Board board)
 {
 	std::vector<Move> moves = generateMoves(board);
-	return (moves.size == 0);
+	return (moves.size() == 0);
 }

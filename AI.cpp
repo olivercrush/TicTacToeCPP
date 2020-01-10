@@ -18,7 +18,7 @@ Move AI::findBestMove(Board board, bool playerIsX)
 	bestMove.col = -1;
 
 	std::vector<Move> moves = moveGenerator->generateMoves(board);
-	for (int i = 0; i < moves.size; i++)
+	for (int i = 0; i < moves.size(); i++)
 	{
 		board.addMark(!playerIsX, moves[i].row, moves[i].col);
 		int moveValue = minimax(board, 0, false);
@@ -52,7 +52,7 @@ int AI::minimax(Board board, int depth, bool isMaximizingPlayer)
 		int best = -1000;
 		
 		std::vector<Move> moves = moveGenerator->generateMoves(board);
-		for (int i = 0; i < moves.size; i++)
+		for (int i = 0; i < moves.size(); i++)
 		{
 			board.addMark(isMaximizingPlayer, moves[i].row, moves[i].col);
 			int minimaxValue = minimax(board, depth + 1, !isMaximizingPlayer);
@@ -70,7 +70,7 @@ int AI::minimax(Board board, int depth, bool isMaximizingPlayer)
 		int best = 1000;
 
 		std::vector<Move> moves = moveGenerator->generateMoves(board);
-		for (int i = 0; i < moves.size; i++)
+		for (int i = 0; i < moves.size(); i++)
 		{
 			board.addMark(!isMaximizingPlayer, moves[i].row, moves[i].col);
 			int minimaxValue = minimax(board, depth + 1, isMaximizingPlayer);
