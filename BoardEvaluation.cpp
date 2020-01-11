@@ -5,7 +5,7 @@ BoardEvaluation::BoardEvaluation()
 
 }
 
-int BoardEvaluation::evaluateBoard(Board board, bool xFirstPlayer)
+int BoardEvaluation::evaluateBoard(Board board, bool xMaxPlayer)
 {
 	Case** cases = board.getBoard();
 
@@ -16,11 +16,11 @@ int BoardEvaluation::evaluateBoard(Board board, bool xFirstPlayer)
 		{
 			if (cases[i][0] == Case::X)
 			{
-				return xFirstPlayer ? 10 : -10;
+				return xMaxPlayer ? 10 : -10;
 			}
 			else if (cases[i][0] == Case::O)
 			{
-				return !xFirstPlayer ? 10 : -10;
+				return !xMaxPlayer ? 10 : -10;
 			}
 		}
 	}
@@ -32,11 +32,11 @@ int BoardEvaluation::evaluateBoard(Board board, bool xFirstPlayer)
 		{
 			if (cases[0][i] == Case::X)
 			{
-				return xFirstPlayer ? 10 : -10;
+				return xMaxPlayer ? 10 : -10;
 			}
 			else if (cases[0][i] == Case::O)
 			{
-				return !xFirstPlayer ? 10 : -10;
+				return !xMaxPlayer ? 10 : -10;
 			}
 		}
 	}
@@ -46,11 +46,11 @@ int BoardEvaluation::evaluateBoard(Board board, bool xFirstPlayer)
 	{
 		if (cases[0][0] == Case::X)
 		{
-			return xFirstPlayer ? 10 : -10;
+			return xMaxPlayer ? 10 : -10;
 		}
 		else if (cases[0][0] == Case::O)
 		{
-			return !xFirstPlayer ? 10 : -10;
+			return !xMaxPlayer ? 10 : -10;
 		}
 	}
 
@@ -58,11 +58,11 @@ int BoardEvaluation::evaluateBoard(Board board, bool xFirstPlayer)
 	{
 		if (cases[0][2] == Case::X)
 		{
-			return xFirstPlayer ? 10 : -10;
+			return xMaxPlayer ? 10 : -10;
 		}
 		else if (cases[0][2] == Case::O)
 		{
-			return !xFirstPlayer ? 10 : -10;
+			return !xMaxPlayer ? 10 : -10;
 		}
 	}
 
