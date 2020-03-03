@@ -5,96 +5,97 @@ Board::Board()
 	initBoard();
 }
 
-Board::Board(Board const& other)
-{
-	initBoard(other);
-}
-
 Board::~Board()
 {
 	for (int i = 0; i < 3; i++)
 	{
-		delete[] board[i];
+		delete[] m_board[i];
 	}
-	delete[] board;
+	delete[] m_board;
 }
 
-bool Board::addMark(bool xPlayer, int x, int y)
+Cell** Board::getBoard()
 {
-	if (board[x][y] != Case::EMPTY) 
-	{
-		return false;
-	}
-
-	board[x][y] = xPlayer ? Case::X : Case::O;
-	return true;
-}
-
-void Board::removeMark(int x, int y)
-{
-	board[x][y] = Case::EMPTY;
-}
-
-
-Case** Board::getBoard()
-{
-	return board;
+	return m_board;
 }
 
 void Board::printBoard()
 {
-	std::cout << "  -------------" << std::endl;
-	for (int i = 0; i < 3; i++)
+	for (int y = 0; y < 3; y++)
 	{
-		std::cout << "  |";
-		for (int j = 0; j < 3; j++)
-		{
-			std::cout << " ";
-			switch (board[i][j])
-			{
-				case Case::X:
-					std::cout << "X";
-					break;
+		std::cout << "-------------" << std::endl;
 
-				case Case::O:
+		for (int x = 0; x < 3; x++)
+		{
+			std::cout << "| ";
+
+			switch (m_board[x][y])
+			{
+				case Cell::O:
 					std::cout << "O";
 					break;
 
-				case Case::EMPTY:
-				default:
+				case Cell::X:
+					std::cout << "X";
+					break;
+
+				case Cell::EMPTY:
 					std::cout << " ";
 					break;
 			}
-			std::cout << " |";
+
+			std::cout << " ";
 		}
-		std::cout << std::endl;
-		std::cout << "  -------------" << std::endl;
+		std::cout << "|" << std::endl;
 	}
-	std::cout << std::endl;
+
+	std::cout << "-------------" << std::endl;
+}
+
+bool Board::fillCell(int x, int y, Cell cell)
+{
+	if (m_board[x][y] != Cell::EMPTY)
+		return false;
+
+	m_board[x][y] = cell;
+	return true;
+}
+
+void Board::emptyCell(int x, int y)
+{
+	m_board[x][y] = Cell::EMPTY;
+}
+
+bool Board::isGameOver()
+{
+	for (int x = 0; x < 3; x++) {
+		if (m_board[x][0] == m_board[x][1] && m_board[x][1] == m_board[x][2] && m_board[x][0] != Cell::EMPTY)
+			return true;
+	}
+
+	for (int y = 0; y < 3; y++) {
+		if (m_board[0][y] == m_board[1][y] && m_board[1][y] == m_board[2][y] && m_board[0][y] != Cell::EMPTY)
+			return true;
+	}
+
+	if (m_board[0][0] == m_board[1][1] && m_board[1][1] == m_board[2][2] && m_board[0][0] != Cell::EMPTY)
+		return true;
+
+	if (m_board[0][2] == m_board[1][1] && m_board[1][1] == m_board[2][0] && m_board[0][2] != Cell::EMPTY)
+		return true;
+
+	return false;
 }
 
 void Board::initBoard()
 {
-	board = new Case*[3];
+	m_board = new Cell*[3];
 	for (int i = 0; i < 3; i++)
 	{
-		board[i] = new Case[3];
+		m_board[i] = new Cell[3];
 		for (int j = 0; j < 3; j++)
 		{
-			board[i][j] = Case::EMPTY;
-		}
-	}
-}
-
-void Board::initBoard(Board const& other)
-{
-	board = new Case*[3];
-	for (int i = 0; i < 3; i++)
-	{
-		board[i] = new Case[3];
-		for (int j = 0; j < 3; j++)
-		{
-			board[i][j] = other.board[i][j];
+			m_board[i][j] = Cell::EMPTY;
 		}
 	}
 }

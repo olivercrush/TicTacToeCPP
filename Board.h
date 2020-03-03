@@ -1,26 +1,22 @@
 #pragma once
 #include <iostream>
 
-enum Case : int {
-	X,
-	O,
-	EMPTY
-};
+enum Cell { X, O, EMPTY };
 
 class Board
 {
-	public :
+	public:
 		Board();
-		Board(Board const& other);
 		~Board();
-		bool addMark(bool xPlayer, int x, int y);
-		void removeMark(int x, int y);
-		Case** getBoard();
+		Cell** getBoard();
 		void printBoard();
+		bool fillCell(int x, int y, Cell cell);
+		void emptyCell(int x, int y);
+		bool isGameOver();
 
-	private :
+	private:
+		Cell** m_board;
 		void initBoard();
-		void initBoard(Board const& other);
-		Case** board;
 
 };
+
